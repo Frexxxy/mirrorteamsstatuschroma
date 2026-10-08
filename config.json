@@ -1,0 +1,8 @@
+{
+  "PollSeconds": 5,
+  "ColorBusyHex": "FF0000",
+  "ColorDefaultHex": "FFFFFF",
+  "BusyStates": ["Busy", "BusyIdle", "DoNotDisturb", "InACall", "InAMeeting", "Presenting"],
+  "StatusLogPattern": "UserPresenceAction:\\s*\\{[^}]*?availability:\\s*\"?([A-Za-z]+)",
+  "TeamsLogPathOverride": ""
+}
