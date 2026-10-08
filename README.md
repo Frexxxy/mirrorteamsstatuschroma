@@ -17,6 +17,30 @@ Contents:
 - `config.json` – your settings (colors, interval, states, detection pattern)
 - `Install-Autostart.ps1` – enables autostart (`-Uninstall` disables it again)
 
+## Quick start
+
+**Requirements:** Windows 10/11 (the built-in Windows PowerShell 5.1 is enough), the new
+Microsoft Teams client (work/school), and a **Razer Goliathus Extended Chroma** connected
+via USB. Other Razer devices are not supported.
+
+1. Download the repository ("Code → Download ZIP") or `git clone` it.
+2. Extract it to a permanent folder, e.g. `C:\Tools\TeamsPresenceChroma`. The autostart
+   shortcut points to this folder; if you move it later, run step 5 again.
+3. If you downloaded the ZIP, unblock the files (Windows marks downloaded scripts as
+   blocked). In PowerShell, inside the folder:
+   ```powershell
+   Get-ChildItem | Unblock-File
+   ```
+4. Quit Razer Synapse and remove it from autostart (see [step 1](#1-quit-razer-synapse)).
+5. Set up autostart and start the program right away:
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File .\Install-Autostart.ps1 -StartNow
+   ```
+6. A dot appears in the tray. Briefly switch to "Do not disturb" in Teams and back — the
+   mat should turn red and then white again.
+
+The sections below explain the details, settings and troubleshooting.
+
 ---
 
 ## How it works
@@ -125,3 +149,19 @@ If this becomes too much maintenance in the long run: the official Teams "third-
 API" (Settings → Privacy) only provides meeting state, not "Busy"/"Do not disturb";
 [PresenceLight](https://github.com/isaacrlevin/presencelight) covers everything but
 requires a Microsoft Graph sign-in.
+
+---
+
+## Disclaimer
+
+This is an independent hobby project and is not affiliated with, endorsed by or supported
+by Microsoft or Razer. "Microsoft Teams", "Razer", "Chroma" and "Goliathus" are trademarks
+of their respective owners.
+
+The program relies on an undocumented Teams log format and talks to the mousemat directly
+via its USB protocol. Both can change or break at any time. Use at your own risk; the
+software is provided "as is", without warranty of any kind (see [LICENSE](LICENSE)).
+
+## License
+
+[MIT](LICENSE) © 2026 photographael
